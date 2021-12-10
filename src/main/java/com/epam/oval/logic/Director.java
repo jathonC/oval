@@ -3,8 +3,8 @@ package com.epam.oval.logic;
 import com.epam.oval.dao.DataException;
 import com.epam.oval.dao.DataReader;
 import com.epam.oval.entity.Oval;
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,6 +19,7 @@ public class Director {
         this.reader = reader;
         this.validator = validator;
         this.creator = creator;
+
     }
 
     public List<Oval> read(String path) throws DataException {
