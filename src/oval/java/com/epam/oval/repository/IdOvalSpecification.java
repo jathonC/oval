@@ -11,7 +11,7 @@ public class IdOvalSpecification implements OvalSpecification {
 
     @Override
     public boolean specified(OvalObservable ovalObservable) {
-        int id = ovalObservable.getId();
-        return equals(id);
+        int thisId = ovalObservable.getId();
+        return equals(thisId);
     }
 }
