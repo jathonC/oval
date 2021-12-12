@@ -1,6 +1,6 @@
 package logic;
-import com.epam.oval.datareader.DataException;
-import com.epam.oval.datareader.DataReader;
+import com.epam.oval.dao.DataException;
+import com.epam.oval.dao.DataReader;
 import com.epam.oval.entity.Oval;
 import com.epam.oval.entity.Point;
 import com.epam.oval.logic.Director;
@@ -10,15 +10,14 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.mockito.Mockito;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 public class DirectorTest {
     private static final String TEST_PATH = "path";
     private static final String VALID_LINE1 = "1.0 3.0 4.0 5.0";
     private static final String VALID_LINE2 = "2.0 -3.0 4.0 5.0";
-    private static final Oval VALID_BALL1 = new Oval(new Point(1,1), new Point(2, 3));
-    private static final Oval VALID_BALL2 = new Oval(new Point(3,3), new Point(-3, 4));
+    private static final Oval VALID_OVAL1 = new Oval(new Point(1,1), new Point(2, 3));
+    private static final Oval VALID_OVAL2 = new Oval(new Point(3,3), new Point(-3, 4));
 
 
 
@@ -32,13 +31,15 @@ public class DirectorTest {
         Mockito.when(validator.isValidLine(VALID_LINE1)).thenReturn(true);
         Mockito.when(validator.isValidLine(VALID_LINE2)).thenReturn(true);
         OvalCreator creator = Mockito.mock(OvalCreator.class);
-        Mockito.when(creator.create(VALID_LINE1)).thenReturn(VALID_BALL1);
-        Mockito.when(creator.create(VALID_LINE2)).thenReturn(VALID_BALL2);
+        Mockito.when(creator.create(VALID_LINE1)).thenReturn(VALID_OVAL1);
+        Mockito.when(creator.create(VALID_LINE2)).thenReturn(VALID_OVAL2);
         Director director = new Director(reader, validator, creator);
-        List<Oval> expectedBalls = Arrays.asList(VALID_BALL1, VALID_BALL2);
+        List<Oval> expectedOvals = Arrays.asList(VALID_OVAL1, VALID_OVAL2);
         //when
-        List<Oval> actualBalls = director.read(TEST_PATH);
+        List<Oval> actualOvals = director.read(TEST_PATH);
         //then
-        Assert.assertEquals(expectedBalls, actualBalls);
+
+        Assert.assertEquals(expectedOvals, actualOvals);
+
     }
 }

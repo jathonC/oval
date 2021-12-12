@@ -1,11 +1,10 @@
 package logic;
 
-import com.epam.oval.datareader.DataException;
-import com.epam.oval.datareader.DataReader;
+import com.epam.oval.dao.DataException;
+import com.epam.oval.dao.DataReader;
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
