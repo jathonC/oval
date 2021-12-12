@@ -3,7 +3,7 @@ package com.epam.oval.dao;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
-
+import com.epam.oval.entity.Point;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
